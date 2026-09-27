@@ -24,4 +24,9 @@ Klone prosjektet og gå inn i prosjektmappen:
 ```bash
 git clone https://github.com/Sverreglia/middagsplanlegger.git
 cd middagsplanlegger
+
+Kjøre kommando ./gradlew bootRun
+Åpne localhost:8080 i nettleser
+
+Nyt din nye middagsplanlegger!
 ```
