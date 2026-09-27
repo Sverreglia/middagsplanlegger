@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="no" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiddagPlan</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<div th:replace="~{fragments/layout :: nav}"></div>
+
+
+<section class="hero">
+    <div class="hero-content">
+
+        <div class="hero-text">
+            <p class="small-heading">UKENS MIDDAGER</p>
+
+            <h1>
+                Velkommen til<br>
+                <span>Middagsplanleggærn!</span>
+            </h1>
+
+            
+            
+
+            <a href="/" class="primary-button">
+                Generer ny ukeplan
+            </a>
+        </div>
+
+        <div class="hero-image">
+            <div class="image-circle">
+                🍝
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<main class="main-content">
+
+    <div class="section-header">
+        <div>
+            
+            <h2>Ukens middager</h2>
+        </div>
+
+        <a href="/" class="secondary-button">
+            Ny ukeplan
+        </a>
+    </div>
+
+
+    <div class="week-grid">
+
+        <div class="day-card weekday" th:each="ukemiddag, i : ${ukesMiddager}">
+            <span class="day" th:text="${ukedager[i.index]}"></span>
+            <div class="food-icon" th:text="${ukemiddag['emoji']}">🐟</div>
+            <h3 th:text="${ukemiddag['navn']}"></h3>
+            <p th:text="${ukemiddag['kategori']}"></p>  
+        </div>
+
+        
+
+    </div>
+
+
+   
+
+</main>
+
+
+<div th:replace="~{fragments/layout :: footer}"></div>
+
+</body>
+</html>
+

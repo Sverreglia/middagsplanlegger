@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="no" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Middager – MiddagPlan</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/middager.css}">
+</head>
+
+<body>
+
+
+<div th:replace="~{fragments/layout :: nav}"></div>
+
+
+
+<header class="page-header">
+    <div class="page-header-content">
+        <p class="small-heading">DIN MATBANK</p>
+        <h1>Alle middager</h1>
+        <p>
+            Her finner du alle middagene dine.
+            Legg til favorittene dine og bruk dem til å lage
+            en ny ukeplan.
+        </p>
+    </div>
+</header>
+
+<main class="dinner-content">
+    <section class="dinner-section">
+        <div class="section-title">
+            <div>
+                <span class="category-icon weekday-icon">🥗</span>
+                <div>
+                    <h2>Hverdagsmat</h2>
+                    <p>Enkle middager for mandag til torsdag</p>
+                </div>
+            </div>
+            <span class="meal-count">4 middager</span>
+        </div>
+
+        <div class="dinner-grid">
+            <article class="dinner-card weekday-card"  th:each="middag : ${middager}" th:if="${middag['kategori'] == 'Hverdagsmat'}">
+                <div class="dinner-card-icon" th:text="${middag['emoji']}">
+                    🐟
+                </div>
+                <div class="dinner-info">
+                    <h3 th:text="${middag['navn']}"></h3>
+                    <p></p>
+                </div >
+                <a class="delete-button" th:href="@{/middager/delete/{navn}(navn=${middag.navn})}">
+                    🗑
+                </a>
+            </article>
+        </div>
+
+    </section>
+
+    <section class="dinner-section">
+        <div class="section-title">
+            <div>
+                <span class="category-icon weekend-icon">🍕</span>
+                <div>
+                    <h2>Helgemat</h2>
+                    <p>Digg mat til fredag, lørdag og søndag</p>
+                </div>
+            </div>
+            <span class="meal-count">3 middager</span>
+        </div>
+
+        <div class="dinner-grid">
+            <article class="dinner-card weekend-card"  th:each="middag : ${middager}" th:if="${middag['kategori'] == 'Helgemat'}">
+                <div class="dinner-card-icon" th:text="${middag['emoji']}">
+                    
+                </div>
+                <div class="dinner-info">
+                    <h3 th:text="${middag['navn']}"></h3>
+                    <p></p>
+                </div>
+                <a class="delete-button" th:href="@{/middager/delete/{navn}(navn=${middag.navn})}">
+                    🗑
+                </a>
+            </article>
+
+        </div>
+    </section>
+
+
+    <section class="add-dinner-section">
+        <div class="add-dinner-text">
+            <span class="add-icon">＋</span>
+            <div>
+                <h2>Legg til en middag</h2>
+                <p>
+                    Har du en favorittmiddag som mangler?
+                    Legg den til i matbanken din.
+                </p>
+            </div>
+        </div>
+
+
+        <form class="dinner-form" action="/middager" method="post">
+            <div class="form-group">
+                <label for="navn">Navn på middag</label>
+                <input
+                    type="text"
+                    id="navn"
+                    name="navn"
+                    placeholder="F.eks. Taco"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="kategori">Kategori</label>
+                <select id="kategori" name="kategori" required>
+                    <option value="">Velg kategori</option>
+                    <option value="Hverdagsmat" selected>
+                        Hverdagsmat
+                    </option>
+                    <option value="Helgemat">
+                        Helgemat
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <div class="emoji-picker">
+   
+
+    <div class="emoji-menu">
+
+        <label>
+            <input type="radio" name="emoji" value="🍕">
+            🍕
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🍔">
+            🍔
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🍟">
+            🍟
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🌮">
+            🌮
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🌯">
+            🌯
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🥪">
+            🥪
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🍝">
+            🍝
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🍜">
+            🍜
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🍲">
+            🍲
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🥘">
+            🥘
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🍛">
+            🍛
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🍣">
+            🍣
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🍤">
+            🍤
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🍗">
+            🍗
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🥩">
+            🥩
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🥓">
+            🥓
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🥚">
+            🥚
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🧀">
+            🧀
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🥔">
+            🥔
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🍚">
+            🍚
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🥖">
+            🥖
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🥕">
+            🥕
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🌽">
+            🌽
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🥦">
+            🥦
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🥬">
+            🥬
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🥑">
+            🥑
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🍅">
+            🍅
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🧅">
+            🧅
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🧄">
+            🧄
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🍄">
+            🍄
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🫑">
+            🫑
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🥒">
+            🥒
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🍆">
+            🍆
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🐟">
+            🐟
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🦐">
+            🦐
+        </label>
+
+        <label>
+            <input type="radio" name="emoji" value="🥗">
+            🥗
+        </label>
+
+    </div>
+</div>
+                
+            </div>
+
+
+            <button type="submit" class="add-button">
+                + Legg til middag
+            </button>
+        </form>
+    </section>
+
+</main>
+
+
+
+<div th:replace="~{fragments/layout :: footer}"></div>
+
+</body>
+</html>
+

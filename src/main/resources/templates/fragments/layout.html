@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="nav">
+<nav class="navbar">
+    <div class="nav-container">
+
+        <a href="/" class="logo">
+            🍴 Middags<br>planleggærn
+        </a>
+
+        <div class="nav-links">
+            <a href="/" class="active">Hjem</a>
+            <a href="/middager">Middager</a>
+            <a href="/om">Om</a>
+        </div>
+
+    </div>
+</nav>
+</div>
+<div th:fragment="footer">
+<footer>
+    <p>
+        Middags<br>planleggærn <span>-</span>
+    </p>
+</footer>
+</div>
+</body>
+</html>

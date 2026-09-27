@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="no" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Om Middags<br>planleggærn</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/om.css}">
+</head>
+
+<body>
+
+<div th:replace="~{fragments/layout :: nav}"></div>
+
+
+<main class="about-page">
+
+    <section class="about-hero">
+
+        <div class="about-icon">
+            🍝
+        </div>
+
+        <h1>
+            Lei av spørsmålet<br>
+            <span>«Hva skal vi ha til middag?»</span>
+        </h1>
+
+        <p class="about-intro">
+            Middagsplanleggærn er laget for deg som hater å bruke tid på å
+            finne ut hva du skal lage til middag.
+        </p>
+
+    </section>
+
+
+    <section class="how-section">
+
+        <div class="section-heading">
+
+            <p class="small-heading">SLIK FUNGERER DET</p>
+
+            <h2>Tre enkle steg</h2>
+
+        </div>
+
+
+        <div class="steps">
+
+            <div class="step">
+
+                <div class="step-number">
+                    1
+                </div>
+
+                <h3>Legg inn middager</h3>
+
+                <p>
+                    Skriv inn middagene du liker å lage.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    2
+                </div>
+
+                <h3>Generer ukeplan</h3>
+
+                <p>
+                    La MiddagPlan sette sammen en plan for uka.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    3
+                </div>
+
+                <h3>Slipp å tenke</h3>
+
+                <p>
+                    Nå vet du hva som står på menyen hver dag.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="about-cta">
+
+        <h2>Klar for å slippe middagsproblemet?</h2>
+
+        <p>
+            Gå til middager og legg inn dine favoritter.
+        </p>
+
+        <a href="/middager" class="primary-button">
+            🍴 Se middager
+        </a>
+
+    </section>
+
+</main>
+
+
+<div th:replace="~{fragments/layout :: footer}"></div>
+
+</body>
+</html>
+
